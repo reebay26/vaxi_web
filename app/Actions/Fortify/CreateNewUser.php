@@ -29,11 +29,14 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
                 // Add validation for admin role
-                if ($input['role'] === 'admin' && $input['email'] === ['areeba2309d@aptechgdn.net','wajiha2309d@aptechgdn.net']) {
-                    throw ValidationException::withMessages([
-                        'role' => ['Only authorized users can register as admin.'],
-                    ]);
-                }
+                if ($input['role'] === 'admin') {
+                    $authorizedEmails = ['areeba2309d@aptechgdn.net', 'wajiha2309d@aptechgdn.net'];
+
+                    if (!in_array($input['email'], $authorizedEmails)) {
+                        throw ValidationException::withMessages([
+                            'role' => ['Only authorized users can register as admin.'],
+                        ]);
+                    }}
 
 
         return User::create([
