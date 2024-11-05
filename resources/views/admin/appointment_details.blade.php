@@ -252,7 +252,7 @@
               <div class=" p-4">
                 <h5 class="card-title fw-semibold mb-4">Appointment Details</h5>
                 <div class="table-responsive">
-                  <table class="table table-bordered table-striped text-nowrap mb-0 align-middle ">
+                  <table class="table table-bordered ">
                     <thead class="text-dark fs-4">
                       <tr>
                         <th class="border-bottom-0">
